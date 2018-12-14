@@ -30,4 +30,21 @@ class Boostrap
         return $this->script;
     }
 
+    public function getBladexExList()
+    {
+        return [
+            //自动完成-预先数据
+            "autoCompleteLocal"=>\Trensy\KendoUI\BladexEx\AutoCompleteLocal::class,
+            "autoCompleteRemote"=>\Trensy\KendoUI\BladexEx\AutoCompleteRemote::class,
+            "comboBoxLocal"=>\Trensy\KendoUI\BladexEx\ComboBoxLocal::class,
+            "comboBoxRemote"=>\Trensy\KendoUI\BladexEx\ComboBoxRemote::class,
+            "datePicker"=>\Trensy\KendoUI\BladexEx\DatePicker::class,
+            "dateTimePicker"=>\Trensy\KendoUI\BladexEx\DateTimePicker::class,
+            "dropDownListLocal"=>\Trensy\KendoUI\BladexEx\DropDownListLocal::class,
+            "dropDownListRemote"=>\Trensy\KendoUI\BladexEx\DropDownListRemote::class,
+            "dropDownTreeLocal"=>\Trensy\KendoUI\BladexEx\DropDownTreeLocal::class,
+            "dropDownTreeRemote"=>\Trensy\KendoUI\BladexEx\DropDownTreeRemote::class,
+        ];
+    }
+
 }
