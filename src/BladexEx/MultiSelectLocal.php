@@ -8,10 +8,8 @@
 namespace Trensy\KendoUI\BladexEx;
 
 
-class AutoCompleteRemote extends Base
+class MultiSelectLocal extends Base
 {
-
-
     public function perform($param)
     {
         $str = $this->getPushStatic([
@@ -28,33 +26,21 @@ class AutoCompleteRemote extends Base
             '/static/lib/kendo-ui/js/kendo.draganddrop.min.js',
             '/static/lib/kendo-ui/js/kendo.mobile.scroller.min.js',
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
-            '/static/lib/kendo-ui/js/kendo.autocomplete.min.js'
+            '/static/lib/kendo-ui/js/kendo.multiselect.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\AutoCompleteRemote::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\MultiSelectLocal::deal('.$param.'); ?>';
     }
 
 
-    public static function deal($url,$name='autoComplete',$value='',$options=[],$type="POST", $parameterMap=null)
+    public static function deal($data, $name='msl',$value=[],$options=[])
     {
-        $transport = new \Kendo\Data\DataSourceTransport();
-        $read = new \Kendo\Data\DataSourceTransportRead();
-
-        $read->url($url)->contentType('application/json')->type($type);
-
-        if(!$parameterMap){
-        $parameterMap = "function (data){ var idata = kendo.stringify(data); return idata;}";
-        }
-        $transport->read($read)->parameterMap($parameterMap);
 
         $dataSource = new \Kendo\Data\DataSource();
-        $dataSource->transport($transport);
-        $dataSource->serverFiltering(true);
+        $dataSource->data($data);
 
-        $ui = new \Kendo\UI\AutoComplete($name);
+        $ui = new \Kendo\UI\MultiSelect($name);
         $ui->dataSource($dataSource)->value($value);
-
-        $ui->suggest(true);
-        $ui->ignoreCase(false);
+        $ui->autoClose(false);
         if($options){
             foreach ($options as $k=>$v){
                 $ui->$k($v);

@@ -35,7 +35,7 @@ class DropDownTreeRemote extends Base
      * @param string $type
      * @param null $parameterMap
      */
-    public static function deal($url, $name='ddt',$idField='id',$hasChildrenField='hasChildren',$options=[],$type="POST", $parameterMap=null)
+    public static function deal($url, $name='ddt',$value="", $idField='id',$hasChildrenField='hasChildren',$options=[],$type="POST", $parameterMap=null)
     {
         $transport = new \Kendo\Data\DataSourceTransport();
         $read = new \Kendo\Data\DataSourceTransportRead();
@@ -59,7 +59,7 @@ class DropDownTreeRemote extends Base
             ->schema($schema);
 
         $ui = new \Kendo\UI\DropDownTree($name);
-        $ui->dataSource($dataSource);
+        $ui->dataSource($dataSource)->value($value);
         $ui->ignoreCase(false);
         $ui->filter('contains');
         if($options){

@@ -8,8 +8,9 @@
 namespace Trensy\KendoUI\BladexEx;
 
 
-class DropDownTreeLocal extends Base
+class Upload extends Base
 {
+
     public function perform($param)
     {
         $str = $this->getPushStatic([
@@ -18,24 +19,20 @@ class DropDownTreeLocal extends Base
             '/static/lib/kendo-ui/styles/kendo.default.mobile.min.css',
             '/static/lib/kendo-ui/js/jquery.min.js',
             '/static/lib/kendo-ui/js/kendo.core.min.js',
-            '/static/lib/kendo-ui/js/kendo.data.min.js',
-            '/static/lib/kendo-ui/js/kendo.treeview.min.js',
-            '/static/lib/kendo-ui/js/kendo.popup.min.js',
-            '/static/lib/kendo-ui/js/kendo.dropdowntree.min.js'
+            '/static/lib/kendo-ui/js/kendo.upload.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\DropDownTreeLocal::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\Upload::deal('.$param.'); ?>';
     }
 
-
-    public static function deal($data, $name='ddt',$value=null,$options=[])
+    /**
+     * @param string $name
+     * @param string $value
+     * @param array $options
+     */
+    public static function deal($name='files[]',$initialFiles=[],$options=[])
     {
-        $dataSource = new \Kendo\Data\DataSource();
-        $dataSource->data($data);
-
-        $ui = new \Kendo\UI\DropDownTree($name);
-        $ui->dataSource($dataSource);
-        $ui->filter('startswith');
-
+        $ui = new \Kendo\UI\Upload($name);
+        if($initialFiles) $ui->files($initialFiles);
         if($options){
             foreach ($options as $k=>$v){
                 $ui->$k($v);

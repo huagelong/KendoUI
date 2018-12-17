@@ -40,7 +40,7 @@ class DropDownListRemote extends Base
      * @param string $type
      * @param null $parameterMap
      */
-    public static function deal($url, $name='dl',$options=[],$type="POST", $parameterMap=null)
+    public static function deal($url, $name='dl',$value='',$options=[],$type="POST", $parameterMap=null)
     {
         $transport = new \Kendo\Data\DataSourceTransport();
         $read = new \Kendo\Data\DataSourceTransportRead();
@@ -56,7 +56,7 @@ class DropDownListRemote extends Base
         $dataSource->transport($transport)->serverFiltering(true);
 
         $ui = new \Kendo\UI\DropDownList($name);
-        $ui->dataSource($dataSource);
+        $ui->dataSource($dataSource)->value($value);
         $ui->ignoreCase(false);
         $ui->filter('contains');
         if($options){

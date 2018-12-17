@@ -32,31 +32,14 @@ class DropDownListLocal extends Base
     }
 
 
-    public static function deal($data, $name='dl',$options=[])
+    public static function deal($data, $name='dl',$value='', $options=[])
     {
-        $tmpData = [];
-        //如果是一维度数组
-        if (isset($data[0])){
-            $tmpData = $data;
-        }else{
-            foreach ($data as $k=>$v){
-                $tmp = [];
-                $tmp['text'] = $k;
-                $tmp['value'] = $v;
-                $tmpData[] = $tmp;
-            }
-        }
-
         $dataSource = new \Kendo\Data\DataSource();
-        $dataSource->data($tmpData);
+        $dataSource->data($data);
 
         $ui = new \Kendo\UI\DropDownList($name);
-        $ui->dataSource($dataSource);
+        $ui->dataSource($dataSource)->value($value);
 
-        if (!isset($data[0])){
-            $ui->dataTextField('text');
-            $ui->dataValueField('value');
-        }
         $ui->filter('contains');
         $ui->ignoreCase(false);
 

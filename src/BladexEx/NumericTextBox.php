@@ -8,7 +8,7 @@
 namespace Trensy\KendoUI\BladexEx;
 
 
-class DropDownTreeLocal extends Base
+class NumericTextBox extends Base
 {
     public function perform($param)
     {
@@ -18,24 +18,17 @@ class DropDownTreeLocal extends Base
             '/static/lib/kendo-ui/styles/kendo.default.mobile.min.css',
             '/static/lib/kendo-ui/js/jquery.min.js',
             '/static/lib/kendo-ui/js/kendo.core.min.js',
-            '/static/lib/kendo-ui/js/kendo.data.min.js',
-            '/static/lib/kendo-ui/js/kendo.treeview.min.js',
-            '/static/lib/kendo-ui/js/kendo.popup.min.js',
-            '/static/lib/kendo-ui/js/kendo.dropdowntree.min.js'
+            '/static/lib/kendo-ui/js/kendo.userevents.min.js',
+            '/static/lib/kendo-ui/js/kendo.numerictextbox.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\DropDownTreeLocal::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\NumericTextBox::deal('.$param.'); ?>';
     }
 
 
-    public static function deal($data, $name='ddt',$value=null,$options=[])
+    public static function deal($value, $name='ntb',$options=[])
     {
-        $dataSource = new \Kendo\Data\DataSource();
-        $dataSource->data($data);
-
-        $ui = new \Kendo\UI\DropDownTree($name);
-        $ui->dataSource($dataSource);
-        $ui->filter('startswith');
-
+        $ui = new \Kendo\UI\NumericTextBox($name);
+        $ui->value($value);
         if($options){
             foreach ($options as $k=>$v){
                 $ui->$k($v);

@@ -44,6 +44,13 @@ class Boostrap
             "dropDownListRemote"=>\Trensy\KendoUI\BladexEx\DropDownListRemote::class,
             "dropDownTreeLocal"=>\Trensy\KendoUI\BladexEx\DropDownTreeLocal::class,
             "dropDownTreeRemote"=>\Trensy\KendoUI\BladexEx\DropDownTreeRemote::class,
+            "editor"=>\Trensy\KendoUI\BladexEx\Editor::class,
+            "maskedTextBox"=>\Trensy\KendoUI\BladexEx\MaskedTextBox::class,
+            "multiSelectLocal"=>\Trensy\KendoUI\BladexEx\MultiSelectLocal::class,
+            "multiSelectRemote"=>\Trensy\KendoUI\BladexEx\MultiSelectRemote::class,
+            "numericTextBox"=>\Trensy\KendoUI\BladexEx\NumericTextBox::class,
+            "timePicker"=>\Trensy\KendoUI\BladexEx\TimePicker::class,
+            "upload"=>\Trensy\KendoUI\BladexEx\Upload::class,
         ];
     }
 

@@ -33,31 +33,13 @@ class ComboBoxLocal extends Base
     }
 
 
-    public static function deal($data, $name='cb',$options=[])
+    public static function deal($data,$name='cb', $value='',$options=[])
     {
-        $tmpData = [];
-        //如果是一维度数组
-        if (isset($data[0])){
-            $tmpData = $data;
-        }else{
-            foreach ($data as $k=>$v){
-                $tmp = [];
-                $tmp['text'] = $k;
-                $tmp['value'] = $v;
-                $tmpData[] = $tmp;
-            }
-        }
-
         $dataSource = new \Kendo\Data\DataSource();
-        $dataSource->data($tmpData);
+        $dataSource->data($data);
 
         $ui = new \Kendo\UI\ComboBox($name);
-        $ui->dataSource($dataSource);
-
-        if (!isset($data[0])){
-            $ui->dataTextField('text');
-            $ui->dataValueField('value');
-        }
+        $ui->dataSource($dataSource)->value($value);
         $ui->suggest(true);
 
         if($options){

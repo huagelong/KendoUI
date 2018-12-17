@@ -32,19 +32,19 @@ class AutoCompleteLocal extends Base
         return $str.'<?php \Trensy\KendoUI\BladexEx\AutoCompleteLocal::deal('.$param.'); ?>';
     }
 
-    public static function deal($data, $name='autoComplete',$options=[])
+    public static function deal($data, $name='autoComplete',$value='',$options=[])
     {
         $dataSource = new \Kendo\Data\DataSource();
         $dataSource->data($data);
 
-        $autoComplete = new \Kendo\UI\AutoComplete($name);
-        $autoComplete->dataSource($dataSource);
+        $ui = new \Kendo\UI\AutoComplete($name);
+        $ui->dataSource($dataSource)->value($value);
         if($options){
             foreach ($options as $k=>$v){
-                $autoComplete->$k($v);
+                $ui->$k($v);
             }
         }
-        echo $autoComplete->render();
+        echo $ui->render();
     }
 
 }

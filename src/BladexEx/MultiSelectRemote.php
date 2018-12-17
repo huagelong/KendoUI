@@ -8,9 +8,8 @@
 namespace Trensy\KendoUI\BladexEx;
 
 
-class AutoCompleteRemote extends Base
+class MultiSelectRemote extends Base
 {
-
 
     public function perform($param)
     {
@@ -28,13 +27,20 @@ class AutoCompleteRemote extends Base
             '/static/lib/kendo-ui/js/kendo.draganddrop.min.js',
             '/static/lib/kendo-ui/js/kendo.mobile.scroller.min.js',
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
-            '/static/lib/kendo-ui/js/kendo.autocomplete.min.js'
+            '/static/lib/kendo-ui/js/kendo.multiselect.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\AutoCompleteRemote::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\MultiSelectRemote::deal('.$param.'); ?>';
     }
 
-
-    public static function deal($url,$name='autoComplete',$value='',$options=[],$type="POST", $parameterMap=null)
+    /**
+     *
+     * @param $url
+     * @param string $name
+     * @param array $options
+     * @param string $type
+     * @param null $parameterMap
+     */
+    public static function deal($url, $name='msr', $value=[], $options=[],$type="POST", $parameterMap=null)
     {
         $transport = new \Kendo\Data\DataSourceTransport();
         $read = new \Kendo\Data\DataSourceTransportRead();
@@ -42,19 +48,17 @@ class AutoCompleteRemote extends Base
         $read->url($url)->contentType('application/json')->type($type);
 
         if(!$parameterMap){
-        $parameterMap = "function (data){ var idata = kendo.stringify(data); return idata;}";
+            $parameterMap = "function (data){ var idata = kendo.stringify(data); return idata;}";
         }
         $transport->read($read)->parameterMap($parameterMap);
 
         $dataSource = new \Kendo\Data\DataSource();
-        $dataSource->transport($transport);
-        $dataSource->serverFiltering(true);
+        $dataSource->transport($transport)->serverFiltering(true);
 
-        $ui = new \Kendo\UI\AutoComplete($name);
+        $ui = new \Kendo\UI\MultiSelect($name);
         $ui->dataSource($dataSource)->value($value);
-
-        $ui->suggest(true);
         $ui->ignoreCase(false);
+        $ui->filter('contains');
         if($options){
             foreach ($options as $k=>$v){
                 $ui->$k($v);
