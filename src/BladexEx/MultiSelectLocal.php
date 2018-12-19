@@ -28,7 +28,7 @@ class MultiSelectLocal extends Base
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
             '/static/lib/kendo-ui/js/kendo.multiselect.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\MultiSelectLocal::deal('.$param.'); ?>';
+        return $str.'<?php echo \Trensy\KendoUI\BladexEx\MultiSelectLocal::deal('.$param.'); ?>';
     }
 
 
@@ -46,7 +46,7 @@ class MultiSelectLocal extends Base
                 $ui->$k($v);
             }
         }
-        echo $ui->render();
+        return $ui->render();
     }
 
 }

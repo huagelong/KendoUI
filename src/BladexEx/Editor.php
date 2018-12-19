@@ -43,7 +43,7 @@ class Editor extends Base
             '/static/lib/kendo-ui/js/kendo.pdf.min.js',
             '/static/lib/kendo-ui/js/kendo.editor.min.js',
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\Editor::deal('.$param.'); ?>';
+        return $str.'<?php echo \Trensy\KendoUI\BladexEx\Editor::deal('.$param.'); ?>';
     }
 
 
@@ -108,7 +108,7 @@ class Editor extends Base
 
         echo $str;
         $editor->endContent();
-        echo $editor->render();
+        return $editor->render();
     }
 
 }

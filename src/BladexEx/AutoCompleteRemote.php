@@ -30,7 +30,7 @@ class AutoCompleteRemote extends Base
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
             '/static/lib/kendo-ui/js/kendo.autocomplete.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\AutoCompleteRemote::deal('.$param.'); ?>';
+        return $str.'<?php echo \Trensy\KendoUI\BladexEx\AutoCompleteRemote::deal('.$param.'); ?>';
     }
 
 
@@ -60,7 +60,7 @@ class AutoCompleteRemote extends Base
                 $ui->$k($v);
             }
         }
-        echo $ui->render();
+        return $ui->render();
     }
 
 }

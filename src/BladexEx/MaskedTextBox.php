@@ -20,7 +20,7 @@ class MaskedTextBox extends Base
             '/static/lib/kendo-ui/js/kendo.core.min.js',
             '/static/lib/kendo-ui/js/kendo.maskedtextbox.min.js'
             ]);
-        return $str.'<?php \Trensy\KendoUI\BladexEx\MaskedTextBox::deal('.$param.'); ?>';
+        return $str.'<?php echo \Trensy\KendoUI\BladexEx\MaskedTextBox::deal('.$param.'); ?>';
     }
 
 
@@ -29,7 +29,7 @@ class MaskedTextBox extends Base
         $ui = new \Kendo\UI\MaskedTextBox($name);
         $ui->value($data)
             ->mask($mask);
-        echo $ui->render();
+        return $ui->render();
     }
 
 }
