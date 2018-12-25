@@ -23,7 +23,7 @@ class DropDownTreeLocal extends Base
             '/static/lib/kendo-ui/js/kendo.popup.min.js',
             '/static/lib/kendo-ui/js/kendo.dropdowntree.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\DropDownTreeLocal::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\DropDownTreeLocal::deal('.$param.'); ?>';
     }
 
 
@@ -41,7 +41,7 @@ class DropDownTreeLocal extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

@@ -21,7 +21,7 @@ class NumericTextBox extends Base
             '/static/lib/kendo-ui/js/kendo.userevents.min.js',
             '/static/lib/kendo-ui/js/kendo.numerictextbox.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\NumericTextBox::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\NumericTextBox::deal('.$param.'); ?>';
     }
 
 
@@ -34,7 +34,7 @@ class NumericTextBox extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

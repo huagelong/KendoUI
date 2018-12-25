@@ -27,7 +27,7 @@ class TimePicker extends Base
             '/static/lib/kendo-ui/js/kendo.timepicker.min.js',
             '/static/lib/kendo-ui/js/kendo.datetimepicker.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\TimePicker::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\TimePicker::deal('.$param.'); ?>';
     }
 
 
@@ -41,7 +41,7 @@ class TimePicker extends Base
                 $ui->$k($v);
             }
         }
-        return  $ui->render();
+        echo $ui->render();
     }
 
 }

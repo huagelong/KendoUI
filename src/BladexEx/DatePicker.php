@@ -24,7 +24,7 @@ class DatePicker extends Base
             '/static/lib/kendo-ui/js/kendo.popup.min.js',
             '/static/lib/kendo-ui/js/kendo.datepicker.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\DatePicker::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\DatePicker::deal('.$param.'); ?>';
     }
 
 
@@ -39,7 +39,7 @@ class DatePicker extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

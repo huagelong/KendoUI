@@ -29,7 +29,7 @@ class ComboBoxRemote extends Base
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
             '/static/lib/kendo-ui/js/kendo.combobox.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\ComboBoxRemote::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\ComboBoxRemote::deal('.$param.'); ?>';
     }
 
     /**
@@ -65,7 +65,7 @@ class ComboBoxRemote extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

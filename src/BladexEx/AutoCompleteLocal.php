@@ -29,7 +29,7 @@ class AutoCompleteLocal extends Base
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
             '/static/lib/kendo-ui/js/kendo.autocomplete.min.js'
         ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\AutoCompleteLocal::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\AutoCompleteLocal::deal('.$param.'); ?>';
     }
 
     public static function deal($data, $name='autoComplete',$value='',$options=[])
@@ -44,7 +44,7 @@ class AutoCompleteLocal extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

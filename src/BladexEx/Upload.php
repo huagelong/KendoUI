@@ -21,7 +21,7 @@ class Upload extends Base
             '/static/lib/kendo-ui/js/kendo.core.min.js',
             '/static/lib/kendo-ui/js/kendo.upload.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\Upload::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\Upload::deal('.$param.'); ?>';
     }
 
     /**
@@ -38,7 +38,7 @@ class Upload extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

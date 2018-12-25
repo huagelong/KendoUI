@@ -28,7 +28,7 @@ class DropDownListLocal extends Base
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
             '/static/lib/kendo-ui/js/kendo.dropdownlist.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\DropDownListLocal::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\DropDownListLocal::deal('.$param.'); ?>';
     }
 
 
@@ -40,15 +40,15 @@ class DropDownListLocal extends Base
         $ui = new \Kendo\UI\DropDownList($name);
         $ui->dataSource($dataSource)->value($value);
 
-        $ui->filter('contains');
-        $ui->ignoreCase(false);
+//        $ui->filter('contains');
+//        $ui->ignoreCase(false);
 
         if($options){
             foreach ($options as $k=>$v){
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

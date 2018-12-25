@@ -24,7 +24,7 @@ class DropDownTreeRemote extends Base
             '/static/lib/kendo-ui/js/kendo.popup.min.js',
             '/static/lib/kendo-ui/js/kendo.dropdowntree.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\DropDownTreeRemote::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\DropDownTreeRemote::deal('.$param.'); ?>';
     }
 
     /**
@@ -67,7 +67,7 @@ class DropDownTreeRemote extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }

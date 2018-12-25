@@ -29,7 +29,7 @@ class ComboBoxLocal extends Base
             '/static/lib/kendo-ui/js/kendo.virtuallist.min.js',
             '/static/lib/kendo-ui/js/kendo.combobox.min.js'
             ]);
-        return $str.'<?php echo \Trensy\KendoUI\BladexEx\ComboBoxLocal::deal('.$param.'); ?>';
+        return $str.'<?php \Trensy\KendoUI\BladexEx\ComboBoxLocal::deal('.$param.'); ?>';
     }
 
 
@@ -47,7 +47,7 @@ class ComboBoxLocal extends Base
                 $ui->$k($v);
             }
         }
-        return $ui->render();
+        echo $ui->render();
     }
 
 }
